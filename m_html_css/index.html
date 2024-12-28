@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marcus De Maria</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1e1e1e;
+            color: #333;
+            overflow-y: auto
+        }
+
+        /* Background animations */
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .background .line {
+            position: absolute;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, #333, transparent);
+            animation: moveLines 8s linear infinite;
+        }
+
+        .background .circle {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(200, 200, 200, 0.1);
+            animation: moveCircles 12s linear infinite;
+        }
+
+        .background .box {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.05);
+            animation: moveBoxes 10s linear infinite;
+        }
+
+        @keyframes moveLines {
+            0% {
+                transform: translateY(-100%);
+            }
+            100% {
+                transform: translateY(100%);
+            }
+        }
+
+        @keyframes moveCircles {
+            0% {
+                transform: translateY(100%) rotate(0deg);
+            }
+            100% {
+                transform: translateY(-100%) rotate(360deg);
+            }
+        }
+
+        @keyframes moveBoxes {
+            0% {
+                transform: translate(-100%, -100%) rotate(0deg);
+            }
+            100% {
+                transform: translate(100%, 100%) rotate(360deg);
+            }
+        }
+
+        /* Flashing animation for the "Learn more about Marcus." text */
+        @keyframes flashPurple {
+            0%, 100% {
+                color: #d400ff;
+            }
+            50% {
+                color: #9a00cc;
+            }
+        }
+
+        /* Content styles */
+        h1 {
+            margin: 0;
+            font-size: 5.0em;
+            font-family: 'Orbitron', sans-serif;
+            border-bottom: 2px solid #a9a9a9;
+            display: inline-block;
+            padding-bottom: 1vh;
+            padding-top: 9vh;
+            animation: flashPurple 1.5s infinite;
+        }
+
+        header {
+            padding: 60px 0 20px;
+            position: relative;
+            text-align: center;
+        }
+
+        .link-container {
+            position: absolute;
+            top: 1vh;
+            right: 2vh;
+            background-color: #fff;
+            border: 0.3vh solid #d400ff;
+            border-radius: 1.5vh;
+            padding: 1.5vh 2.5vh;
+            box-shadow: 0 0.4vh 0.8vh rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 2vh;
+        }
+
+        .link-container a {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2em;
+            color: #d400ff;
+            text-decoration: none;
+        }
+
+        .link-container a:hover {
+            text-decoration: underline;
+        }
+
+        .click-container {
+            position: absolute;
+            top: 1vh;
+            left: 2vh;
+            background-color: #fff;
+            border: 0.3vh solid #d400ff;
+            border-radius: 1.5vh;
+            padding: 1.5vh 2.5vh;
+            box-shadow: 0 0.4vh 0.8vh rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 1.5vh;
+        }
+
+        .click-container a {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2em;
+            color: #d400ff;
+            text-decoration: none;
+        }
+
+        .click-container a:hover {
+            text-decoration: underline;
+        }
+
+        .typing-text {
+            font-size: 2.5em;
+            font-family: 'Orbitron', sans-serif;
+            display: inline-block;
+            position: relative;
+            min-height: 1.8em;
+            position: absolute;
+            top: 250px;
+            width: 100%;
+            left: 0;
+            text-align: center;
+            color: #fff; /* Set text color to white */
+        }
+
+        .scroll-container {
+            position: absolute;
+            top: 80vh; /* Adjust this value to move the scroll text up */
+            width: 100%;
+            text-align: center;
+            animation: flashPurple 1.5s infinite;
+        }
+
+        .scroll-container p {
+            font-size: 2em;
+            font-family: 'Orbitron', sans-serif;
+            margin: 0;
+            margin-bottom: 20px; /* Add margin to move the text further away from the arrow */
+        }
+
+        .scroll-container .arrow {
+            display: inline-block;
+            margin-top: 10px;
+            width: 50px;
+            height: 50px;
+            border-right: 5px solid #d400ff; /* Adjusted border for downward orientation */
+            border-bottom: 5px solid #d400ff;
+            transform: rotate(45deg); /* Points downward initially */
+            animation: spinAndGrow 3s infinite;
+        }
+
+        @keyframes spinAndGrow {
+            0% {
+            transform: rotate(45deg) scale(1); /* Starts pointing down */
+            }
+            50% {
+            transform: rotate(405deg) scale(1.5); /* Rotates 360 degrees and scales up */
+            }
+            100% {
+            transform: rotate(405deg) scale(1); /* Ends pointing down */
+            }
+        }
+        
+        section#about {
+            margin-top: 640px;
+            padding: 20px;
+            text-align: left;
+        }
+
+        section#about h2 {
+            font-family: 'Orbitron', sans-serif;
+            color: #d400ff;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            animation: flashPurple 1.5s infinite;
+            position: relative; /* Ensure pseudo-element positioning works */
+            padding-bottom: 10px; /* Add space for underline */
+            margin-bottom: 20px; /* Space between heading and content */
+        }
+
+        section#about h2::after {
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 97.5vw; /* Make underline span the entire viewport width */
+            height: 2px; /* Thickness of the underline */
+            background-color: #a9a9a9; /* Color of the underline */
+        }
+
+        section#about .about-box {
+            background: linear-gradient(145deg, #333, #555);
+            border-radius: 20px;
+            box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.2), -8px -8px 16px rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            max-width: 100%;
+            margin: 20px auto;
+            font-family: Arial, sans-serif;
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: #ddd;
+        }
+
+        section#experience {
+            margin-top: 40px;
+            padding: 20px;
+            text-align: left;
+        }
+
+        section#experience h2 {
+            font-family: 'Orbitron', sans-serif;
+            color: #d400ff;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            animation: flashPurple 1.5s infinite;
+            position: relative; /* Ensure pseudo-element positioning works */
+            padding-bottom: 10px; /* Add space for underline */
+            margin-bottom: 20px; /* Space between heading and content */
+        }
+
+        section#experience h2::after {
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 97.5vw; /* Make underline span the entire viewport width */
+            height: 2px; /* Thickness of the underline */
+            background-color: #a9a9a9; /* Color of the underline */
+        }
+
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .experience-box {
+            background: linear-gradient(145deg, #333, #555);
+            border-radius: 20px;
+            box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.2), -8px -8px 16px rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            color: #ddd;
+            font-family: Arial, sans-serif;
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+
+        .experience-box h3 {
+            margin: 0;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5em;
+            color: #d400ff;
+            margin-bottom: 10px;
+        }
+
+        .experience-box p {
+            margin: 0;
+            font-size: 1.1em;
+        }
+
+        section#projects {
+            margin-top: 40px;
+            padding: 20px;
+            text-align: left;
+        }
+
+        section#projects h2 {
+            font-family: 'Orbitron', sans-serif;
+            color: #d400ff;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            animation: flashPurple 1.5s infinite;
+            position: relative; /* Ensure pseudo-element positioning works */
+            padding-bottom: 10px; /* Add space for underline */
+            margin-bottom: 20px; /* Space between heading and content */
+        }
+
+        section#projects h2::after {
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 97.5vw; /* Make underline span the entire viewport width */
+            height: 2px; /* Thickness of the underline */
+            background-color: #a9a9a9; /* Color of the underline */
+        }
+
+        section#projects .project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        section#projects .project-box {
+            background: linear-gradient(145deg, #333, #555);
+            border-radius: 20px;
+            box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.2), -8px -8px 16px rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            font-family: Arial, sans-serif;
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: #ddd;
+            text-align: center;
+        }
+
+        section#projects .project-box h3 {
+            margin-bottom: 10px;
+            font-size: 1.5em;
+            color: #d400ff;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        section#projects .project-box p {
+            font-size: 1em;
+            color: #bbb;
+        }
+
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const texts = [
+                "Mechatronics Engineering Student",
+                "Currently Attending McMaster University",
+                "Design, Test, Analyze, Optimize, Results",
+                "Develop, Refine, and Produce the Best Product"
+            ];
+
+            const textContainer = document.createElement('p');
+            textContainer.className = 'typing-text';
+            document.querySelector('main').insertBefore(textContainer, document.querySelector('#about'));
+
+            let index = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+            const typingSpeed = 100;
+            const deletingSpeed = 50;
+            const pauseBetween = 1000;
+
+            const typeText = () => {
+                const currentText = texts[index];
+                if (!isDeleting) {
+                    charIndex++;
+                    textContainer.textContent = currentText.slice(0, charIndex) + '|';
+                    if (charIndex === currentText.length) {
+                        isDeleting = true;
+                        setTimeout(typeText, pauseBetween);
+                    } else {
+                        setTimeout(typeText, typingSpeed);
+                    }
+                } else {
+                    charIndex--;
+                    textContainer.textContent = currentText.slice(0, charIndex) + '|';
+                    if (charIndex === 0) {
+                        isDeleting = false;
+                        index = (index + 1) % texts.length;
+                        setTimeout(typeText, pauseBetween);
+                    } else {
+                        setTimeout(typeText, deletingSpeed);
+                    }
+                }
+            };
+
+            typeText();
+        });
+    </script>
+</head>
+<body>
+    <div class="background">
+        <!-- Adding lines, circles, and boxes -->
+        <div class="line" style="left: 20%;"></div>
+        <div class="line" style="left: 40%;"></div>
+        <div class="line" style="left: 60%;"></div>
+        <div class="line" style="left: 80%;"></div>
+        <div class="circle" style="top: 10%; left: 15%;"></div>
+        <div class="circle" style="top: 70%; left: 50%;"></div>
+        <div class="circle" style="top: 40%; left: 80%;"></div>
+        <div class="box" style="top: 20%; left: 25%;"></div>
+        <div class="box" style="top: 60%; left: 70%;"></div>
+        <div class="box" style="top: 80%; left: 10%;"></div>
+    </div>
+
+    <div class="scroll-container">
+        <p>Scroll Down</p>
+        <div class="arrow"></div>
+    </div>
+    <header>
+        <div class="click-container">
+            <a href="#about">About Me</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+        </div>
+        <div class="link-container">
+            <a id="resume-link" href="file:///C:/Users/Marcus/Downloads/Marcus_DeMaria_Resume_25.pdf" target="_blank">Resume</a>
+            <a id="linkedin-link" href="https://www.linkedin.com/in/marcus-de-maria-54a137251/" target="_blank">LinkedIn</a>
+            <a id="github-link" href="https://github.com/marcusdemaria" target="_blank">GitHub</a>
+            <a id="email-link" href="mailto:demarm2@mcmaster.ca">Email</a>
+        </div>
+        <h1>Learn more about Marcus.</h1>
+    </header>
+    <main>
+        <section id="about">            
+            <h2>About Me</h2>
+            <div class="about-box">
+                Hey! I'm Marcus De Maria, an aspiring Mechatronics Engineer in his third year at McMaster University interested in the efficient and optimized development of various tools and processes in the tech, automotive, and industrial industries.
+                <br><br>
+                As an aspiring undergraduate and coworker, I am passionate about my chosen field of study and would like to complement my studies with as much hands-on experience as I can. I find fulfillment in my educational pursuits and hope to spread positive change through software optimization/automation as well as the mechanical design of various engineered tools and systems, combined with various testing and data analysis techniques to curate perfected results.
+                <br><br>
+                Relevant experience and passion for product design, product testing, data analysis, optimization, automation, and task validation/documentation.
+                <br><br>
+                In my spare time, you can find me at the gym, a new coffee shop, thrifting, playing/watching sports, or connecting with new people with similar interests as mine!
+            </div>
+        </section>
+        <section id="experience">            
+            <h2>Experience</h2>
+            <div class="experience-grid">
+                <div class="experience-box">
+                    <h3>Operations and Project Engineering Intern</h3>
+                    <p><a href="https://almag.com/" target="_blank" style="color: #fff;">ALMAG Aluminum</a> | May 2024 - Aug 2024</p>
+                    <ul>
+                        <li>Analyzed and tested various data sets and operations statistics with help from Excel, SQL, and Python to optimize efficiency and yield of aluminum billets through press operations in the plant by an extra 15%.</li>
+                        <li>Collaborated on various projects involving CNC machines and other robots in facility processes with SOLIDWORKS, Ansys, and CNC programming to automate 10-20 drill and tapping machines/processes.</li>
+                    </ul>
+                </div>
+                <div class="experience-box">
+                    <h3>Electromechanical Engineering Intern</h3>
+                    <p><a href="https://www.welbilt.com/" target="_blank" style="color: #fff;">Welbilt - Garland</a> | May 2023- Aug 2023</p>
+                    <ul>
+                        <li>Created 30+ unit assemblies of products for 100+ workers by utilizing specifications of engineering drawings, diagrams, computer-aided design in SOLIDWORKS, and other methods of testing in the facility.</li>
+                        <li>Assembled and tested 50+ parts to confirm design criteria and functionality as a key contributing member.</li>
+                        <li>Observed products with the engineering team and collected data through various forms with MATLAB and Python in the engineering lab to increase oven door production and temperature efficiency by 10-12%.</li>
+                    </ul>
+                </div>
+                <div class="experience-box">
+                    <h3>Mechanical Design and Testing</h3>
+                    <p><a href="https://macformularacing.com/" target="_blank" style="color: #fff;">McMaster Formula Electric</a> | Sep 2023 - May 2023</p>
+                    <ul>
+                        <li>Pivotal team member who assists in dozens of drawings (physical and CAD) of the chassis through design and group discussions, as well as research and development into data analysis of performance.</li>
+                        <li>Utilized FEA tools in SOLIDWORKS to conduct a static stress analysis study on several automotive components to predict behavior under various loads, confirming design decisions and analytics.</li>
+                    </ul>
+                </div>
+                <div class="experience-box">
+                    <h3>Design and Safety</h3>
+                    <p><a href="https://www.linkedin.com/company/mcmasterexo/posts/?feedView=all" target="_blank" style="color: #fff;">McMaster Exoskeleton</a> | Nov 2024 - Present</p>
+                    <ul>
+                        <li>Helping draft designs for mechanical components using SOLIDWORKS and aiding through the entire manufacturing process of the exoskeleton as a newly formed club at McMaster during the 2024 year.</li>
+                        <li>Testing and validating safety of the various mechanical and electrical components with softwares such as Ansys, including charting results of tests using Excel and writing safety reports on components that pass.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section id="projects">            
+            <h2>Projects</h2>
+            <div class="project-grid">
+                <div class="project-box">
+                    <h3>Personal Website</h3>
+                    <p>Skills: HTML, CSS, Java</p>
+                    <p style="text-align: left;">What you are currently using to view this! Made to better display my personal portfolio and because I wanted to learn some fun new skills on WebDev!</p>
+                </div>
+                <div class="project-box">
+                    <h3>Sparse Matrix Solver</h3>
+                    <p>Skills: C, MATLAB, SQL</p>
+                    <p style="text-align: left;">Building upon a C program developed for an assignment in an Intro to Programming class that uses Jacobi’s iterative method to solve large sparse symmetric matrices. The solutions computed by these matrices were multiplied in Ax + b to produce an accurate residual to the e-10 to e-14 magnitude of accuracy for matrices smaller than 5 digits x 5 digits.</p>
+                </div>
+                <div class="project-box">
+                    <h3>Alarm System</h3>
+                    <p>Skills: C++, Microcontroller</p>
+                    <p style="text-align: left;">Created an FSM with a working controller, breadboard, and embedded C++ programming to act as a security alarm system using push buttons, leds, an LCD screen, motion sensors, and a buzzer.</p>
+                </div>
+                <div class="project-box">
+                    <h3>Automated Recycling Station</h3>
+                    <p>Skills: Autodesk, Ansys, Python</p>
+                    <p style="text-align: left;">CAD designed and manufactured a hydraulic dispensary lift with a linear actuator for implementation in an automated recyclable sorting system that demonstrated a 30% boost in efficiency and speed.</p>
+                </div>
+                <div class="project-box">
+                    <h3>Coming Soon</h3>
+                    <p>Skills: N/A</p>
+                    <p style="text-align: left;">Currently working on an NBA Draft projector/predictor based on various stats of plays from different reputable sites!</p>
+                </div>
+                <div class="project-box">
+                    <h3>Coming Soon</h3>
+                    <p>Skills: N/A</p>
+                    <p style="text-align: left;">Currently working on a tool that can tell you which car model/make is best for you based on various parameters such as cost and performance!</p>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
+
+
+
+
+
+
+
