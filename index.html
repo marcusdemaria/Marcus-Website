@@ -386,6 +386,150 @@
             background-color: #222; /* Optional: fallback background for logos with transparency */
         }
 
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3em; /* Adjust header font size */
+                padding-top: 5vh; /* Reduce padding for smaller screens */
+            }
+
+            .link-container, .click-container {
+                position: static; /* Stack them instead of floating */
+                margin: 10px auto; /* Center-align with some spacing */
+                width: 90%; /* Take up most of the width */
+                flex-direction: column; /* Stack links vertically */
+                text-align: center;
+                gap: 1vh; /* Reduce gap between links */
+            }
+
+            .link-container a, .click-container a {
+                font-size: 1em; /* Adjust font size for smaller screens */
+            }
+
+            .typing-text {
+                font-size: 1.8em; /* Adjust typing text size */
+                position: static; /* Allow normal flow instead of absolute */
+                margin: 20px auto;
+                text-align: center;
+            }
+
+            .scroll-container {
+                top: auto; /* Remove the absolute positioning */
+                position: static;
+                margin-top: 20px; /* Add spacing at the top */
+            }
+
+            .scroll-container p {
+                font-size: 1.5em; /* Adjust font size of the scrolling text */
+            }
+
+            .scroll-container .arrow {
+                width: 30px;
+                height: 30px;
+                border-right: 3px solid #d400ff;
+                border-bottom: 3px solid #d400ff;
+            }
+            
+            section#about, 
+            section#experience, 
+            section#projects {
+                margin-top: 20px; /* Reduce margin for smaller screens */
+                padding: 10px; /* Adjust padding */
+                text-align: left; /* Center align content for better readability */
+            }
+
+            section#about h2, 
+            section#experience h2, 
+            section#projects h2 {
+                font-size: 2em; /* Reduce font size */
+            }
+
+            section#about .about-box, 
+            section#experience .experience-box, 
+            section#projects .project-box {
+                padding: 15px; /* Reduce padding for smaller boxes */
+                font-size: 1em; /* Adjust font size for readability */
+                max-width: 90%; /* Restrict box width for small screens */
+                margin: 20px auto; /* Center-align the boxes */
+            }
+
+            .experience-grid, 
+            section#projects .project-grid {
+                grid-template-columns: 1fr; /* Stack boxes in a single column */
+                gap: 15px; /* Reduce gap between boxes */
+            }
+
+            .experience-logo, 
+            section#projects .project-logo {
+                position: relative; /* Remove absolute positioning */
+                top: 0;
+                right: 0;
+                width: 50px; /* Smaller size for the logo */
+                height: 50px; /* Match width for square dimensions */
+                margin-bottom: 10px; /* Add spacing below the logo */
+                box-shadow: none; /* Remove unnecessary shadow */
+                border-radius: 5px; /* Slight rounding for a cleaner look */
+            }
+
+            .experience-box h3, 
+            section#projects .project-box h3 {
+                font-size: 1.2em; /* Reduce heading size */
+            }
+
+            .experience-box p, 
+            section#projects .project-box p {
+                font-size: 0.9em; /* Reduce paragraph font size */
+            }
+        }
+
+        /* Media Query for Very Small Screens (Mobile) */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2.5em; /* Reduce font size further */
+                padding-top: 3vh;
+            }
+
+            .typing-text {
+                font-size: 1.5em; /* Adjust further for mobile */
+            }
+
+            .scroll-container p {
+                font-size: 1.2em; /* Further reduce font size for scrolling text */
+            }
+
+            .link-container, .click-container {
+                padding: 10px; /* Reduce padding */
+                width: 95%; /* Allow more space on small screens */
+            }
+            
+            section#about h2, 
+            section#experience h2, 
+            section#projects h2 {
+                font-size: 1.8em; /* Further reduce font size */
+            }
+
+            .experience-logo, 
+            section#projects .project-logo {
+                width: 50%; /* Further reduce logo size */
+            }
+
+            section#about .about-box, 
+            section#experience .experience-box, 
+            section#projects .project-box {
+                font-size: 0.9em; /* Adjust font size for smaller screens */
+                padding: 10px; /* Minimize padding */
+            }
+
+            .experience-box h3, 
+            section#projects .project-box h3 {
+                font-size: 1em; /* Adjust heading size */
+            }
+
+            .experience-box p, 
+            section#projects .project-box p {
+                font-size: 0.8em; /* Reduce paragraph font size */
+            }
+        }
+
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
     <script>
