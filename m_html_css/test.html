@@ -376,12 +376,14 @@
         }
 
         section#projects .project-logo {
-            width: 90%; /* Takes up most of the width of the project box */
-            height: auto;
-            margin: 0 auto 15px; /* Center it horizontally with spacing below */
+            width: 80%; /* Ensures consistent width across all logos */
+            height: 150px; /* Fixed height for uniformity */
+            object-fit: contain; /* Ensures the entire logo fits within the box without distortion */
+            margin: 0 auto 15px; /* Center the logo horizontally and add spacing below */
             display: block;
             border-radius: 15px; /* Slightly rounded corners */
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+            background-color: #222; /* Optional: fallback background for logos with transparency */
         }
 
     </style>
@@ -526,33 +528,43 @@
             <h2>Projects</h2>
             <div class="project-grid">
                 <div class="project-box">
-                    <img src="icons\PersonalWebsite.jpg" class="project-logo">
+                    <a href="https://github.com/marcusdemaria/Marcus-Website" target="_blank" style="display: inline-block; width: 100%;">
+                        <img src="icons\PersonalWebsite.jpg" class="project-logo">
+                    </a>
                     <h3>Personal Website</h3>
                     <p>Skills: HTML, CSS, Java</p>
                     <p style="text-align: left;">What you are currently using to view this! Made to better display my personal portfolio and because I wanted to learn some fun new skills on WebDev!</p>
                 </div>
                 <div class="project-box">
-                    <img src="icons\SparseMatrixSolver.png" class="project-logo">
+                    <a href="https://github.com/marcusdemaria/Matrix-Market-Solver" target="_blank" style="display: inline-block; width: 100%;">
+                        <img src="icons\SparseMatrixSolver.png" class="project-logo">
+                    </a>
                     <h3>Sparse Matrix Solver</h3>
                     <p>Skills: C, MATLAB, SQL</p>
                     <p style="text-align: left;">Building upon a C program developed for an assignment in an Intro to Programming class that uses Jacobi’s iterative method to solve large sparse symmetric matrices. The solutions computed by these matrices were multiplied in Ax + b to produce an accurate residual to the e-10 to e-14 magnitude of accuracy for matrices smaller than 5 digits x 5 digits.</p>
                 </div>
                 <div class="project-box">
+                    <a href="https://github.com/marcusdemaria/Stepper-Motor-With-Microcontroller" target="_blank" style="display: inline-block; width: 100%;">
+                        <img src="icons\AlarmSystem.jpg" class="project-logo">
+                    </a>
                     <h3>Alarm System</h3>
                     <p>Skills: C++, Microcontroller</p>
                     <p style="text-align: left;">Created an FSM with a working controller, breadboard, and embedded C++ programming to act as a security alarm system using push buttons, leds, an LCD screen, motion sensors, and a buzzer.</p>
                 </div>
                 <div class="project-box">
+                    <img src="icons\AutomatedRecyclingStation.jpg" class="project-logo">
                     <h3>Automated Recycling Station</h3>
                     <p>Skills: Autodesk, Ansys, Python</p>
                     <p style="text-align: left;">CAD designed and manufactured a hydraulic dispensary lift with a linear actuator for implementation in an automated recyclable sorting system that demonstrated a 30% boost in efficiency and speed.</p>
                 </div>
                 <div class="project-box">
+                    <img src="icons\BlackLogo.png" class="project-logo">
                     <h3>Coming Soon</h3>
                     <p>Skills: N/A</p>
                     <p style="text-align: left;">Currently working on an NBA Draft projector/predictor based on various stats of plays from different reputable sites!</p>
                 </div>
                 <div class="project-box">
+                    <img src="icons\BlackLogo.png" class="project-logo">
                     <h3>Coming Soon</h3>
                     <p>Skills: N/A</p>
                     <p style="text-align: left;">Currently working on a tool that can tell you which car model/make is best for you based on various parameters such as cost and performance!</p>
