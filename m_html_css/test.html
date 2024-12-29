@@ -375,6 +375,15 @@
             color: #bbb;
         }
 
+        section#projects .project-logo {
+            width: 90%; /* Takes up most of the width of the project box */
+            height: auto;
+            margin: 0 auto 15px; /* Center it horizontally with spacing below */
+            display: block;
+            border-radius: 15px; /* Slightly rounded corners */
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+        }
+
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
     <script>
@@ -517,11 +526,13 @@
             <h2>Projects</h2>
             <div class="project-grid">
                 <div class="project-box">
+                    <img src="icons\PersonalWebsite.jpg" class="project-logo">
                     <h3>Personal Website</h3>
                     <p>Skills: HTML, CSS, Java</p>
                     <p style="text-align: left;">What you are currently using to view this! Made to better display my personal portfolio and because I wanted to learn some fun new skills on WebDev!</p>
                 </div>
                 <div class="project-box">
+                    <img src="icons\SparseMatrixSolver.png" class="project-logo">
                     <h3>Sparse Matrix Solver</h3>
                     <p>Skills: C, MATLAB, SQL</p>
                     <p style="text-align: left;">Building upon a C program developed for an assignment in an Intro to Programming class that uses Jacobi’s iterative method to solve large sparse symmetric matrices. The solutions computed by these matrices were multiplied in Ax + b to produce an accurate residual to the e-10 to e-14 magnitude of accuracy for matrices smaller than 5 digits x 5 digits.</p>
