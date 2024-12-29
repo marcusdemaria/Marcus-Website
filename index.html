@@ -484,8 +484,7 @@
             }
         }
 
-        /* Media Query for Very Small Screens (Mobile) */
-        @media (max-width: 480px) {
+        @media (max-width: 480px) { /* Media Query for Very Small Screens (Mobile) */
             h1 {
                 font-size: 2.5em; /* Reduce font size further */
                 padding-top: 3vh;
@@ -512,7 +511,10 @@
 
             .experience-logo, 
             section#projects .project-logo {
-                width: 50%; /* Further reduce logo size */
+                width: 60px; /* Adjust size for mobile */
+                height: 60px; /* Keep it square */
+                top: 10px; /* Keep it aligned in the top-right corner */
+                right: 10px;
             }
 
             section#about .about-box, 
@@ -524,7 +526,8 @@
 
             .experience-box h3, 
             section#projects .project-box h3 {
-                font-size: 1em; /* Adjust heading size */
+                font-size: 1.2em; /* Adjust title font size for mobile */
+                padding-right: 70px; /* Ensure space for the logo */
             }
 
             .experience-box p, 
