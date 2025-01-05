@@ -6,53 +6,7 @@
     <title>Marcus De Maria</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const texts = [
-                "Mechatronics Engineering Student",
-                "Currently Attending McMaster University",
-                "Design, Test, Analyze, Optimize, Results",
-                "Develop, Refine, and Produce the Best Product"
-            ];
-
-            const textContainer = document.createElement('p');
-            textContainer.className = 'typing-text';
-            document.querySelector('main').insertBefore(textContainer, document.querySelector('#about'));
-
-            let index = 0;
-            let charIndex = 0;
-            let isDeleting = false;
-            const typingSpeed = 100;
-            const deletingSpeed = 50;
-            const pauseBetween = 1000;
-
-            const typeText = () => {
-                const currentText = texts[index];
-                if (!isDeleting) {
-                    charIndex++;
-                    textContainer.textContent = currentText.slice(0, charIndex) + '|';
-                    if (charIndex === currentText.length) {
-                        isDeleting = true;
-                        setTimeout(typeText, pauseBetween);
-                    } else {
-                        setTimeout(typeText, typingSpeed);
-                    }
-                } else {
-                    charIndex--;
-                    textContainer.textContent = currentText.slice(0, charIndex) + '|';
-                    if (charIndex === 0) {
-                        isDeleting = false;
-                        index = (index + 1) % texts.length;
-                        setTimeout(typeText, pauseBetween);
-                    } else {
-                        setTimeout(typeText, deletingSpeed);
-                    }
-                }
-            };
-
-            typeText();
-        });
-    </script>
+    <script src="script.js"></script>
 </head>
 <body>
     <div class="background">
@@ -178,21 +132,21 @@
                 <div class="project-box">
                     <img src="m_html_css\icons\BlackLogo.png" class="project-logo">
                     <h3>Product Sales Analyzer</h3>
-                    <p>Skills: Python, Pandas, HTML, SQL</p>
+                    <p>Skills: Python, Pandas, HTML, CSS, JavaScript</p>
                     <p style="text-align: left;">Currently working on a site that can transform a file of sales for a specific product and display data on peak sales and when the best time to get client attraction is.</p>
                 </div>
                 <div class="project-box">
                     <img src="m_html_css\icons\BlackLogo.png" class="project-logo">
-                    <h3>Coming Soon</h3>
-                    <p>Skills: N/A</p>
-                    <p style="text-align: left;">Currently working on a tool that can tell you which car model/make is best for you based on various parameters such as cost and performance!</p>
+                    <h3>Transaction Fraud Identifier</h3>
+                    <p>Skills: SQL, Python, Tkinter</p>
+                    <p style="text-align: left;">Currently working on a tool that can analyze historical credit card transactions and consumption patterns in order to identify possible fraudulent transactions.</p>
                 </div>
             </div>
         </section>
     <footer>
         <hr style="border: 1px solid #a9a9a9; width: 100%;">
-        <p>Copyright Marcus De Maria</p>
-        <p>2025</p>
+        <p>Copyright © 2025 Marcus De Maria</p>
+        <p>All Rights Reserved</p>
         <p>Built With HTML, CSS, JS</p>
     </footer>
     </main>

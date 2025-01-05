@@ -387,14 +387,13 @@ footer {
     padding: 20px;
     background-color: #1e1e1e;
     color: #ddd;
-    border-top: 2px solid #a9a9a9;
-    margin-top: 40px;
+    margin-top: 20px;
 }
 
 footer p {
     margin: 5px 0;
     font-family: 'Orbitron', sans-serif;
-    font-size: 1em;
+    font-size: 1.5em;
 }
 
 @media (max-width: 768px) {
